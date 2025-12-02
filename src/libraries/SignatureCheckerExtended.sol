@@ -89,10 +89,13 @@ library SignatureCheckerExtended {
         
         verifier = address(bytes20(signer[0:20]));
         
+        // Always assign key to avoid calldata pointer issues
         if (signer.length > 20) {
             key = signer[20:];
+        } else {
+            // Assign empty slice when length == 20
+            key = signer[20:20];
         }
-        // If length == 20, key remains empty (default)
     }
 
     /**

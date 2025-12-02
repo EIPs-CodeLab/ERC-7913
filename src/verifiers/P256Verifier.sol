@@ -133,10 +133,10 @@ contract P256Verifier is IERC7913SignatureVerifier {
      * @return bool True if precompile exists
      */
     function _isPrecompileAvailable() private view returns (bool) {
-        // Check if code exists at precompile address
+        // Check if code exists at precompile address (0x100)
         uint256 size;
         assembly {
-            size := extcodesize(P256_PRECOMPILE)
+            size := extcodesize(0x100)
         }
         return size > 0;
     }
