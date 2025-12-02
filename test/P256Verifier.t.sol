@@ -82,7 +82,7 @@ contract P256VerifierTest is Test {
 
     function testReturnsInvalidMagicOnFailure() public {
         bytes4 invalidMagic = bytes4(0xffffffff);
-        assertEq(invalidMagic, 0xffffffff);
+        assertEq(uint32(invalidMagic), uint32(0xffffffff));
     }
 
     /*//////////////////////////////////////////////////////////////
